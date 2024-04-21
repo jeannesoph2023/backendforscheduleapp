@@ -28,8 +28,13 @@ const FormSchema = new mongoose.Schema({
     },
     observation:{
          type:String,
-         required: true || false
+         required:  false
+    },
+    userID:{
+        type:String,
+        required:true
     }
+   
 })
 
 const Form = new mongoose.model('studentFormdetails', FormSchema)
