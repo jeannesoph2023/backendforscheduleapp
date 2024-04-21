@@ -6,14 +6,11 @@ const router = express.Router()
 router.use(express.json())
 router.post("/formdetails", async (req, res) => {
     try {
-        // const verified = await jwt.verify(req.headers.authorization.split(" ")[1], 'secret');
-        // if (verified) {
+        
             const newForm = new Form(req.body);
             const savedForm = await newForm.save();
             res.status(201).json(savedForm);
-        // } else {
-        //     res.status(401).json('Not allowed to send data');
-        // }
+        
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
